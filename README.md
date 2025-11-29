@@ -60,11 +60,11 @@ This application provides an interactive simulation of the First-Come, First-Ser
 <div align="center">
   <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
     <div style="text-align: center; margin: 10px;">
-      <img src="screenshots/SIMULATOR-DASHBOARD.png" alt="FCFS Scheduler Dashboard" width="400px" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+      <img src="SCREENSHOTS/SIMULATOR-DASHBOARD.png" alt="FCFS Scheduler Dashboard" width="400px" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
       <p><strong>Simulator Dashboard</strong></p>
     </div>
     <div style="text-align: center; margin: 10px;">
-      <img src="screenshots/DEMO.png" alt="FCFS Simulation Demo" width="400px" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+      <img src="SCREENSHOTS/DEMO.png" alt="FCFS Simulation Demo" width="400px" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
       <p><strong>Simulation in Progress</strong></p>
     </div>
   </div>
