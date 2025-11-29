@@ -1,6 +1,6 @@
 # FCFS Scheduler Simulator
 
-> A professional JavaFX-based visualization tool for simulating First-Come, First-Served (FCFS) CPU scheduling algorithms with real-time metrics and interactive Gantt chart display.
+A professional JavaFX-based visualization tool for simulating First-Come, First-Served (FCFS) CPU scheduling algorithms with real-time metrics and interactive Gantt chart display.
 
 [![GitHub](https://img.shields.io/github/license/TSR0705/FCFS-SCHEDULING-SIMULATOR)](https://github.com/TSR0705/FCFS-SCHEDULING-SIMULATOR)
 [![Java](https://img.shields.io/badge/Java-21-blue)](https://adoptium.net/)
@@ -22,8 +22,6 @@
 ## 📋 Overview
 
 This application provides an interactive simulation of the First-Come, First-Served (FCFS) CPU scheduling algorithm. Users can add processes with customizable arrival times and burst times, then visualize how the CPU scheduler handles these processes in real-time. The simulator displays a dynamic Gantt chart, process tables, performance metrics, and evolution charts to help understand the behavior of the FCFS scheduling algorithm.
-
-
 
 ## ⚙️ Technical Components
 
@@ -240,5 +238,4 @@ FCFS_Scheduler/
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.#   F C F S - S C H E D U L I N G - S I M U L A T O R  
- 
+This project is licensed under the MIT License - see the LICENSE file for details.
