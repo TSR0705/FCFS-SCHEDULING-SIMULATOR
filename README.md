@@ -7,136 +7,82 @@ A professional JavaFX-based visualization tool for simulating First-Come, First-
 [![Maven](https://img.shields.io/badge/Maven-3.6%2B-blue)](https://maven.apache.org/)
 [![Platform](https://img.shields.io/badge/Platform-JavaFX-green)](https://openjfx.io/)
 
+## 📖 Table of Contents
+
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Demo](#-demo)
+- [Installation & Setup](#️-installation--setup)
+- [Usage Guide](#-usage-guide)
+- [Technical Architecture](#-technical-architecture)
+- [Project Structure](#-project-structure)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+## 🌟 Overview
+
+This application provides an interactive simulation of the First-Come, First-Served (FCFS) CPU scheduling algorithm. FCFS is one of the simplest scheduling algorithms where processes are executed in the order they arrive in the ready queue. 
+
+**Perfect for:**
+- Students learning operating system concepts
+- Educators teaching CPU scheduling algorithms
+- Developers understanding process scheduling behavior
+- Anyone visualizing how FCFS scheduling works in real-time
+
 ## 🚀 Key Features
 
+### Core Functionality
 - **Interactive Process Management**: Add custom processes with names, arrival times, and burst times
-- **Real-time Simulation**: Step through the simulation manually or run it automatically
-- **Dynamic Gantt Chart Visualization**: Color-coded Gantt chart showing process execution and idle periods
-- **Comprehensive Metrics Display**: Real-time calculation of waiting time, turnaround time, and CPU utilization
-- **Performance Analytics**: Line charts showing the evolution of average waiting time and turnaround time
-- **Detailed Logging**: Event log tracking process arrivals, executions, and completions
-- **Adjustable Simulation Speed**: Control simulation speed with a slider from 0.1x to 3x
-- **Process Tables**: View process details and ready queue status
-- **Tooltips**: Hover over Gantt blocks for detailed process information
+- **Real-time Simulation**: Step through manually or run automatically with adjustable speed (0.1x to 3x)
+- **Dynamic Gantt Chart**: Color-coded visualization showing process execution and idle periods
+- **Auto-expanding Canvas**: Automatically adjusts to accommodate long simulations
 
-## 📋 Overview
+### Analytics & Metrics
+- **Comprehensive Performance Metrics**:
+  - Average Waiting Time (WT)
+  - Average Turnaround Time (TAT)
+  - Maximum Waiting Time
+  - CPU Utilization percentage
+  - Total Idle Time tracking
+- **Performance Evolution Charts**: Line graphs showing how WT and TAT change over time
+- **Process Tables**: View all processes and ready queue status at a glance
 
-This application provides an interactive simulation of the First-Come, First-Served (FCFS) CPU scheduling algorithm. Users can add processes with customizable arrival times and burst times, then visualize how the CPU scheduler handles these processes in real-time. The simulator displays a dynamic Gantt chart, process tables, performance metrics, and evolution charts to help understand the behavior of the FCFS scheduling algorithm.
+### User Experience
+- **Detailed Event Logging**: Track process arrivals, executions, and completions
+- **Interactive Tooltips**: Hover over Gantt blocks for detailed process information
+- **Intuitive Controls**: Easy-to-use buttons for Start, Pause, Step, and Reset
+- **Responsive UI**: 1300x850 pixel resizable window with organized layout
 
-## ⚙️ Technical Components
+## 🎥 Demo
 
-### JavaFX UI Elements
+### Screenshots
 
-- **Main Window**: 1300x850 pixel resizable window with organized layout
-- **Input Section**: Text fields for process name, arrival time, and burst time with Add button
-- **Control Buttons**: Start, Pause, Step, and Reset controls for simulation management
-- **Process Tables**: Dual table view showing all processes and ready queue status
-- **Gantt Chart Canvas**: Dynamic 900x250 pixel canvas that auto-expands for visualization
-- **Metrics Panel**: Color-coded labels displaying key performance indicators
-- **Speed Control**: Slider for adjusting simulation speed from 0.1x to 3x
-- **Event Log**: Scrollable text area showing simulation events
-- **Analytics Charts**: Line chart showing WT and TAT evolution over time
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+  <img src="screenshots/SIMULATOR-DASHBOARD.png" alt="Simulator Dashboard" width="45%" />
+  <img src="screenshots/DEMO.png" alt="Simulation Demo" width="45%" />
+</div>
 
-### Core Logic Components
+### Video Walkthrough
 
-#### Process Class
-```java
-static class Process {
-    String name;
-    int arrivalTime, burstTime;
-    int remainingTime;
-    int waitingTime = 0, turnaroundTime = 0, completionTime = 0;
-    Color color; // Randomly assigned color for visualization
-}
-```
+<a href="https://youtu.be/Ppm3BWCN66A?si=EezB81bGeXrtdo_Q">
+  <img src="https://img.youtube.com/vi/Ppm3BWCN66A/hqdefault.jpg" alt="FCFS Scheduler Demo" width="100%" />
+</a>
 
-#### Gantt Block Class
-```java
-static class GanttBlock {
-    Process process; // null if idle
-    double x, y, width, height;
-    int cumulativeWT, cumulativeTAT, cumulativeCT; // store cumulative metrics for tooltip
-}
-```
+[Watch the full demo on YouTube](https://youtu.be/Ppm3BWCN66A?si=EezB81bGeXrtdo_Q) (Duration: ~5 minutes)
 
-#### Scheduling Algorithm
-- Implements First-Come, First-Served (FCFS) scheduling
-- Uses a FIFO queue for process management
-- Calculates waiting time, turnaround time, and completion time for each process
-- Tracks CPU utilization and idle time
-
-#### Visualization Engine
-- Dynamic Gantt chart rendering with color gradients
-- Auto-expanding canvas for long simulations
-- Interactive tooltips with detailed process information
-- Real-time metrics updates during simulation
-
-#### Metrics Calculation
-- Average Waiting Time (WT)
-- Average Turnaround Time (TAT)
-- Maximum Waiting Time
-- CPU Utilization percentage
-- Total Idle Time tracking
-
-## ▶️ Simulation Engine Workflow
-
-1. **Process Initialization**
-   - Users add processes via input fields
-   - Each process is assigned a random color for visualization
-   - Processes are stored in the main process list
-
-2. **Simulation Execution**
-   - At each time unit, check for arriving processes
-   - Add arriving processes to the ready queue
-   - Execute the first process in the queue (FIFO)
-   - Update process remaining time and metrics
-   - Remove completed processes from the queue
-
-3. **Visualization Updates**
-   - Draw Gantt block for current time unit (process or idle)
-   - Update process tables with latest metrics
-   - Refresh performance metrics display
-   - Update analytics charts with current averages
-
-4. **Completion Handling**
-   - Calculate final metrics when processes complete
-   - Log completion events
-   - Update all UI components with final values
-
-## 🛠️ Installation & Running
+## 🛠️ Installation & Setup
 
 ### Prerequisites
-- Java Development Kit (JDK) 21 ([Download Adoptium](https://adoptium.net/))
-- Apache Maven 3.6 or higher ([Download Maven](https://maven.apache.org/download.cgi))
 
-### Quick Start with Git
+Ensure you have the following installed on your system:
 
-To quickly get started with the project, follow these Git commands:
+| Requirement | Version | Download Link |
+|------------|---------|---------------|
+| Java Development Kit (JDK) | 21 or higher | [Adoptium](https://adoptium.net/) |
+| Apache Maven | 3.6 or higher | [Maven](https://maven.apache.org/download.cgi) |
+| Git | Latest | [Git](https://git-scm.com/downloads) |
 
-```bash
-# Create a new README.md file
-echo "# FCFS-SCHEDULING-SIMULATOR" >> README.md
-
-# Initialize a Git repository
-git init
-
-# Add README.md to staging area
-git add README.md
-
-# Make the first commit
-git commit -m "first commit"
-
-# Rename the default branch to main
-git branch -M main
-
-# Add the remote origin
-git remote add origin https://github.com/TSR0705/FCFS-SCHEDULING-SIMULATOR.git
-
-# Push to the remote repository
-git push -u origin main
-```
-
-### Full Project Setup
+### Installation Steps
 
 1. **Clone the Repository**
    ```bash
@@ -146,11 +92,11 @@ git push -u origin main
 
 2. **Verify Prerequisites**
    ```bash
-   java -version
-   mvn -version
+   java -version    # Should show Java 21 or higher
+   mvn -version     # Should show Maven 3.6 or higher
    ```
 
-3. **Compile the Project**
+3. **Build the Project**
    ```bash
    mvn clean compile
    ```
@@ -160,24 +106,137 @@ git push -u origin main
    mvn javafx:run
    ```
 
-### Alternative Execution Methods
+### Alternative Running Methods
 
-1. **Using the Launcher Class**
-   ```bash
-   mvn exec:java -Dexec.mainClass="com.example.fcfs_scheduler.Launcher"
-   ```
+**Method 1: Using Launcher Class**
+```bash
+mvn exec:java -Dexec.mainClass="com.example.fcfs_scheduler.Launcher"
+```
 
-2. **Building a JAR Package**
-   ```bash
-   mvn clean package
-   java -jar target/FCFS_Scheduler-1.0-SNAPSHOT.jar
-   ```
+**Method 2: Build and Run JAR**
+```bash
+mvn clean package
+java -jar target/FCFS_Scheduler-1.0-SNAPSHOT.jar
+```
 
-### Troubleshooting
+### Troubleshooting Common Issues
 
-- **JAVA_HOME not set**: Ensure JAVA_HOME environment variable points to your JDK 21 installation
-- **JavaFX modules not found**: Verify JavaFX dependencies in pom.xml
-- **Maven not found**: Ensure Maven is installed and added to your PATH
+| Issue | Solution |
+|-------|----------|
+| `JAVA_HOME not set` | Set JAVA_HOME environment variable to your JDK 21 installation path |
+| `JavaFX modules not found` | Verify JavaFX dependencies in pom.xml are correctly configured |
+| `Maven not found` | Ensure Maven is installed and its bin directory is added to your PATH |
+| `Module error` | Check that module-info.java is present and correctly configured |
+
+**Need more help?** [Open an issue](https://github.com/TSR0705/FCFS-SCHEDULING-SIMULATOR/issues) on GitHub.
+
+## 📚 Usage Guide
+
+### Quick Start Tutorial
+
+**Step 1: Add Processes**
+1. Enter a process name (e.g., "P1", "Process-A")
+2. Enter arrival time in time units (leave blank for time 0)
+3. Enter burst time (how long the process needs the CPU)
+4. Click "Add Process"
+5. Repeat to add more processes
+
+**Example Process Set:**
+- P1: Arrival=0, Burst=4
+- P2: Arrival=1, Burst=3
+- P3: Arrival=2, Burst=2
+
+**Step 2: Run the Simulation**
+- **Step Mode**: Click "Step" to advance one time unit at a time (recommended for learning)
+- **Automatic Mode**: Click "Start" for continuous execution
+- **Adjust Speed**: Use the speed slider (0.1x to 3x) during automatic execution
+- **Pause**: Click "Pause" to temporarily stop automatic mode
+
+**Step 3: Analyze Results**
+- **Gantt Chart**: Observe process execution order and timing
+- **Metrics Panel**: View real-time performance statistics
+- **Process Tables**: Check individual process details and queue status
+- **Event Log**: Review detailed execution timeline
+- **Evolution Chart**: Analyze how metrics change over time
+
+**Step 4: Reset and Experiment**
+- Click "Reset" to clear everything and try different process configurations
+- Experiment with different arrival times and burst times to see how FCFS behaves
+
+### Understanding the Metrics
+
+- **Waiting Time (WT)**: Time a process spends in the ready queue waiting for CPU
+- **Turnaround Time (TAT)**: Total time from arrival to completion (WT + Burst Time)
+- **CPU Utilization**: Percentage of time the CPU is actively executing processes
+- **Idle Time**: Total time the CPU spends waiting for processes to arrive
+
+### Tips for Best Results
+
+- Start with 3-5 processes to understand the basics
+- Try processes with same vs. different arrival times
+- Observe how FCFS can lead to convoy effect (long processes blocking short ones)
+- Use Step mode first to understand each time unit's behavior
+
+## 🏗️ Technical Architecture
+
+### Core Components
+
+#### 1. Process Class
+```java
+static class Process {
+    String name;
+    int arrivalTime, burstTime;
+    int remainingTime;
+    int waitingTime, turnaroundTime, completionTime;
+    Color color; // Randomly assigned for visualization
+}
+```
+
+#### 2. Gantt Block Class
+```java
+static class GanttBlock {
+    Process process; // null indicates CPU idle time
+    double x, y, width, height;
+    int cumulativeWT, cumulativeTAT, cumulativeCT;
+}
+```
+
+#### 3. Scheduling Algorithm
+
+The FCFS algorithm implementation follows these principles:
+
+- **Queue Management**: Uses FIFO (First-In-First-Out) data structure
+- **Process Selection**: Always executes the first process in the ready queue
+- **Non-preemptive**: Once a process starts, it runs to completion
+- **Metrics Calculation**: Real-time computation of WT, TAT, and utilization
+
+**Algorithm Workflow:**
+1. At each time unit, check for newly arrived processes
+2. Add arriving processes to the ready queue
+3. Execute the first process in the queue (if any)
+4. Update process remaining time and metrics
+5. Remove completed processes from the queue
+6. Track idle time when queue is empty
+
+#### 4. Visualization Engine
+
+- **Canvas Rendering**: Dynamic Gantt chart with auto-expansion
+- **Color Coding**: Random color assignment for easy process identification
+- **Gradient Effects**: Visual polish for better aesthetics
+- **Interactive Elements**: Hover tooltips with detailed information
+
+### UI Components
+
+| Component | Technology | Purpose |
+|-----------|-----------|---------|
+| Main Window | JavaFX Scene | 1300x850 pixel resizable container |
+| Input Section | TextField, Button | Process data entry |
+| Control Panel | Button, Slider | Simulation control |
+| Gantt Chart | Canvas | Dynamic visualization |
+| Tables | TableView | Process and queue display |
+| Metrics Panel | Label | Real-time statistics |
+| Charts | LineChart | Performance evolution |
+| Event Log | TextArea | Execution timeline |
 
 ## 📁 Project Structure
 
@@ -187,55 +246,86 @@ FCFS_Scheduler/
 │   └── main/
 │       ├── java/
 │       │   └── com/example/fcfs_scheduler/
-│       │       ├── FCFS_Scheduler.java    # Main application class
-│       │       ├── HelloController.java   # FXML controller (unused)
-│       │       └── Launcher.java          # Application launcher
-│       │   └── module-info.java           # Java module descriptor
+│       │       ├── FCFS_Scheduler.java    # Main application logic
+│       │       ├── HelloController.java   # FXML controller template
+│       │       └── Launcher.java          # Application entry point
+│       │   └── module-info.java           # Java module configuration
 │       └── resources/
-├── pom.xml                                # Maven configuration
-└── README.md                              # This file
+│           └── (UI resources if any)
+├── screenshots/
+│   ├── SIMULATOR-DASHBOARD.png
+│   └── DEMO.png
+├── pom.xml                                # Maven build configuration
+├── README.md                              # This file
+└── LICENSE                                # MIT License
+
 ```
 
-## 🎮 Demo Workflow
+## 🤝 Contributing
 
-1. **Adding Processes**
-   - Enter process name (e.g., "P1")
-   - Enter arrival time (e.g., "0") or leave blank for immediate arrival
-   - Enter burst time (e.g., "5")
-   - Click "Add Process"
-   - Repeat for additional processes
+Contributions are welcome! Here's how you can help:
 
-2. **Running Simulation**
-   - Use "Step" to advance one time unit at a time
-   - Use "Start" for automatic execution
-   - Adjust speed with the slider during automatic execution
-   - Use "Pause" to temporarily stop automatic execution
+### Ways to Contribute
 
-3. **Monitoring Results**
-   - Watch the Gantt chart update in real-time
-   - Observe metrics changing as processes execute
-   - Check the event log for detailed process information
-   - Analyze the WT/TAT evolution chart for performance trends
+1. **Report Bugs**: [Open an issue](https://github.com/TSR0705/FCFS-SCHEDULING-SIMULATOR/issues) with detailed information
+2. **Suggest Features**: Share your ideas for improvements
+3. **Submit Pull Requests**: Fix bugs or add new features
+4. **Improve Documentation**: Help make the README or code comments clearer
 
-4. **Resetting Simulation**
-   - Click "Reset" to clear all processes and start over
-   - All metrics and visualizations will be cleared
+### Contribution Guidelines
 
-## 📸 Screenshots
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-<div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-  <img src="screenshots/SIMULATOR-DASHBOARD.png" alt="Simulator Dashboard" width="45%" />
-  <img src="screenshots/DEMO.png" alt="Simulation Demo" width="45%" />
-</div>
+### Development Setup
 
-## ▶️ Demo Video
+For contributors setting up the development environment:
 
-<a href="https://youtu.be/Ppm3BWCN66A?si=EezB81bGeXrtdo_Q">
-  <img src="https://img.youtube.com/vi/Ppm3BWCN66A/hqdefault.jpg" alt="FCFS Scheduler Demo" width="100%" />
-</a>
+```bash
+# Fork and clone your fork
+git clone https://github.com/YOUR_USERNAME/FCFS-SCHEDULING-SIMULATOR.git
+cd FCFS-SCHEDULING-SIMULATOR
 
-[Watch the full demo on YouTube](https://youtu.be/Ppm3BWCN66A?si=EezB81bGeXrtdo_Q)
+# Add upstream remote
+git remote add upstream https://github.com/TSR0705/FCFS-SCHEDULING-SIMULATOR.git
+
+# Create a development branch
+git checkout -b dev-your-feature
+
+# Make changes and test
+mvn clean compile
+mvn javafx:run
+```
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### MIT License Summary
+
+You are free to:
+- Use the software for any purpose
+- Modify the source code
+- Distribute the software
+- Use it commercially
+
+Under the condition that:
+- You include the original copyright notice
+- You include the MIT License text
+
+---
+
+## 📞 Support & Contact
+
+- **Issues**: [GitHub Issues](https://github.com/TSR0705/FCFS-SCHEDULING-SIMULATOR/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/TSR0705/FCFS-SCHEDULING-SIMULATOR/discussions)
+- **Repository**: [GitHub Repository](https://github.com/TSR0705/FCFS-SCHEDULING-SIMULATOR)
+
+---
+
+**Made with ❤️ for OS learners and educators**
+
+*Star ⭐ this repository if you find it helpful!*
