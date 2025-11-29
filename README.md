@@ -57,18 +57,32 @@ This application provides an interactive simulation of the First-Come, First-Ser
 
 ### Screenshots
 
-<div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-  <img src="screenshots/SIMULATOR-DASHBOARD.png" alt="Simulator Dashboard" width="45%" />
-  <img src="screenshots/DEMO.png" alt="Simulation Demo" width="45%" />
+<div align="center">
+  <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+    <div style="text-align: center; margin: 10px;">
+      <img src="screenshots/SIMULATOR-DASHBOARD.png" alt="FCFS Scheduler Dashboard" width="400px" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+      <p><strong>Simulator Dashboard</strong></p>
+    </div>
+    <div style="text-align: center; margin: 10px;">
+      <img src="screenshots/DEMO.png" alt="FCFS Simulation Demo" width="400px" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+      <p><strong>Simulation in Progress</strong></p>
+    </div>
+  </div>
 </div>
 
 ### Video Walkthrough
 
-<a href="https://youtu.be/Ppm3BWCN66A?si=EezB81bGeXrtdo_Q">
-  <img src="https://img.youtube.com/vi/Ppm3BWCN66A/hqdefault.jpg" alt="FCFS Scheduler Demo" width="100%" />
-</a>
-
-[Watch the full demo on YouTube](https://youtu.be/Ppm3BWCN66A?si=EezB81bGeXrtdo_Q) (Duration: ~5 minutes)
+<div align="center">
+  <a href="https://youtu.be/Ppm3BWCN66A?si=EezB81bGeXrtdo_Q" target="_blank">
+    <img src="https://img.youtube.com/vi/Ppm3BWCN66A/hqdefault.jpg" alt="FCFS Scheduler Demo Video" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%; height: auto;" />
+  </a>
+  <p>
+    <a href="https://youtu.be/Ppm3BWCN66A?si=EezB81bGeXrtdo_Q" target="_blank">
+      <strong>Watch the full FCFS Scheduler demo on YouTube</strong>
+    </a> 
+    <em>(Duration: ~5 minutes)</em>
+  </p>
+</div>
 
 ## 🛠️ Installation & Setup
 
